@@ -58,6 +58,6 @@ A qualquer momento e de forma gratuita, o usuário (titular dos dados) poderá e
 
 Ao assinalar a caixa de seleção abaixo, você declara que leu este termo na íntegra e concede seu **consentimento expresso** para que o aplicativo **Hijo** trate seus dados pessoais e os dados de seus pets de acordo com as regras aqui descritas.
 
-- [ ] **Li e aceito os termos descritos neste Consentimento para Tratamento de Dados Pessoais.**
+
 
 *Niterói, RJ, 3 de junho de 2026.*
