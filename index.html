@@ -715,7 +715,6 @@
     </div>
 </div>
 
-<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 
 <!-- ══════════════ HERO ══════════════ -->
 <section id="hero">
@@ -1427,7 +1426,7 @@
           <p class="lgpd-note">
             Para exercer seus direitos, solicitar exclusão de dados ou contatar nosso DPO, envie e-mail para <strong style="color:var(--text-head)">privacidade@hijo.com.br</strong>. Responderemos em até 15 dias úteis, conforme art. 18 da LGPD. Versão do Termo: 1.0.0 · Vigência: Jan/2026.
           </p>
-          <a href="#" target="_blank" class="btn btn-outline" style="font-size:.85rem;white-space:nowrap" id="openModal" >
+          <a href="#lgpd" class="btn btn-outline" style="font-size:.85rem;white-space:nowrap" id="openModal" >
             📄 Documento Completo
           </a>
         </div>
@@ -1482,7 +1481,10 @@
 <!-- Back to top -->
 <button id="back-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Voltar ao topo">↑</button>
 
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
 <script>
+
 /* ═══════════════════════════════════════════
    NAVBAR
 ═══════════════════════════════════════════ */
@@ -1726,10 +1728,41 @@ function sendChip(keyword) {
   sendMessage();
 }
 
+/* ═══════════════════════════════════════════
+   MODAL LGPD
+═══════════════════════════════════════════ */
+const modal = document.getElementById("modal");
+const openBtn = document.getElementById("openModal");
+const closeBtn = document.getElementById("closeModal");
+
+openBtn.addEventListener("click", async () => {
+
+    modal.style.display = "block";
+
+    const response = await fetch("termo-lgpd.md");
+    const markdown = await response.text();
+
+    document.getElementById("markdownContent").innerHTML =
+        marked.parse(markdown);
+});
+
+closeBtn.addEventListener("click", () => {
+    modal.style.display = "none";
+});
+
+window.addEventListener("click", (e) => {
+    if(e.target === modal){
+        modal.style.display = "none";
+    }
+});
+
+
+
 /* Set min date for booking */
 const today = new Date().toISOString().split('T')[0];
 document.getElementById('data-ag').min = today;
 document.getElementById('data-ag').value = today;
 </script>
+
 </body>
 </html>
